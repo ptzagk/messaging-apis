@@ -32,6 +32,9 @@ import { TelegramClient } from 'messaging-api-telegram';
 
 // get accessToken from telegram [@BotFather](https://telegram.me/BotFather)
 const client = TelegramClient.connect('12345678:AaBbCcDdwhatever');
+
+
+
 ```
 
 ## API Reference
@@ -43,19 +46,28 @@ All methods return a Promise.
 #### getWebhookInfo
 
 ```js
-client.getWebhookInfo()
+client.getWebhookInfo();
+
+
+
 ```
 
 #### setWebhook(url)
 
 ```js
 client.setWebhook('https://4a16faff.ngrok.io/');
+
+
+
 ```
 
 #### deleteWebhook
 
 ```js
 client.deleteWebhook();
+
+
+
 ```
 
 ### Send API
@@ -70,6 +82,9 @@ client.sendMessage(427770117, 'hi', {
   disable_web_page_preview: true,
   disable_notification: true,
 });
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendmessage)
@@ -77,14 +92,13 @@ client.sendMessage(427770117, 'hi', {
 #### sendPhoto(chatId, photo, options)
 
 ```js
-client.sendPhoto(
-  427770117,
-  'https://example.com/image.png',
-  {
-    caption: 'gooooooodPhoto',
-    disable_notification: true,
-  }
-);
+client.sendPhoto(427770117, 'https://example.com/image.png', {
+  caption: 'gooooooodPhoto',
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendphoto)
@@ -92,14 +106,13 @@ client.sendPhoto(
 #### sendAudio(chatId, audio, options)
 
 ```js
-client.sendAudio(
-  427770117,
-  'https://example.com/audio.mp3',
-  {
-    caption: 'gooooooodAudio',
-    disable_notification: true,
-  }
-);
+client.sendAudio(427770117, 'https://example.com/audio.mp3', {
+  caption: 'gooooooodAudio',
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendaudio)
@@ -107,14 +120,13 @@ client.sendAudio(
 #### sendDocument(chatId, document, options)
 
 ```js
-client.sendDocument(
-  427770117,
-  'https://example.com/doc.gif',
-  {
-    caption: 'gooooooodDocument',
-    disable_notification: true,
-  }
-);
+client.sendDocument(427770117, 'https://example.com/doc.gif', {
+  caption: 'gooooooodDocument',
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#senddocument)
@@ -122,13 +134,12 @@ client.sendDocument(
 #### sendSticker(chatId, sticker, options)
 
 ```js
-client.sendSticker(
-  427770117,
-  'CAADAgADQAADyIsGAAE7MpzFPFQX5QI',
-  {
-    disable_notification: true,
-  }
-);
+client.sendSticker(427770117, 'CAADAgADQAADyIsGAAE7MpzFPFQX5QI', {
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendsticker)
@@ -136,14 +147,13 @@ client.sendSticker(
 #### sendVideo(chatId, video, options)
 
 ```js
-client.sendVideo(
-  427770117,
-  'https://example.com/video.mp4',
-  {
-    caption: 'gooooooodVideo',
-    disable_notification: true,
-  }
-);
+client.sendVideo(427770117, 'https://example.com/video.mp4', {
+  caption: 'gooooooodVideo',
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendvideo)
@@ -151,14 +161,13 @@ client.sendVideo(
 #### sendVoice(chatId, voice, options)
 
 ```js
-client.sendVoice(
-  427770117,
-  'https://example.com/voice.ogg',
-  {
-    caption: 'gooooooodVoice',
-    disable_notification: true,
-  }
-);
+client.sendVoice(427770117, 'https://example.com/voice.ogg', {
+  caption: 'gooooooodVoice',
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendvoice)
@@ -176,6 +185,9 @@ client.sendLocation(
     disable_notification: true,
   }
 );
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendlocation)
@@ -195,6 +207,9 @@ client.sendVenue(
     disable_notification: true,
   }
 );
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendvenue)
@@ -210,6 +225,9 @@ client.sendContact(
   },
   { last_name: 'last' }
 );
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendcontact)
@@ -218,6 +236,9 @@ client.sendContact(
 
 ```js
 client.sendChatAction(427770117, 'typing');
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#sendchataction)
@@ -227,8 +248,7 @@ client.sendChatAction(427770117, 'typing');
 #### getMe
 
 ```js
-client.getMe()
-.then(result => {
+client.getMe().then(result => {
   console.log(result);
   // {
   //   ok: true,
@@ -239,6 +259,9 @@ client.getMe()
   //   }
   // }
 });
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getme)
@@ -246,10 +269,10 @@ client.getMe()
 #### getUserProfilePhotos(userId, options)
 
 ```js
-client.getUserProfilePhotos(
-  313534466,
-  { limit: 2 }
-);
+client.getUserProfilePhotos(313534466, { limit: 2 });
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getuserprofilephotos)
@@ -258,6 +281,9 @@ client.getUserProfilePhotos(
 
 ```js
 client.getFile('UtAqweADGTo4Gz8cZAeR-ouu4XBx78EeqRkABPL_pM4A1UpI0koD65K2');
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getfile)
@@ -266,6 +292,9 @@ client.getFile('UtAqweADGTo4Gz8cZAeR-ouu4XBx78EeqRkABPL_pM4A1UpI0koD65K2');
 
 ```js
 client.getChat(427770117);
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getchat)
@@ -274,6 +303,9 @@ client.getChat(427770117);
 
 ```js
 client.getChatAdministrators(427770117);
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getchatadministrators)
@@ -282,6 +314,9 @@ client.getChatAdministrators(427770117);
 
 ```js
 client.getChatMembersCount(427770117);
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getchatmemberscount)
@@ -290,6 +325,9 @@ client.getChatMembersCount(427770117);
 
 ```js
 client.getChatMember(427770117, 313534466);
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#getchatmember)
@@ -300,6 +338,9 @@ client.getChatMember(427770117, 313534466);
 
 ```js
 client.editMessageText('new_text', { message_id: 66 });
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#editmessagetext)
@@ -308,6 +349,9 @@ client.editMessageText('new_text', { message_id: 66 });
 
 ```js
 client.editMessageCaption('new_caption', { message_id: 66 });
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#editmessagecaption)
@@ -323,6 +367,9 @@ client.editMessageReplyMarkup(
   },
   { message_id: 66 }
 );
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#editmessagereplymarkup)
@@ -331,6 +378,9 @@ client.editMessageReplyMarkup(
 
 ```js
 client.deleteMessage(427770117, 66);
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#deletemessage)
@@ -340,12 +390,12 @@ client.deleteMessage(427770117, 66);
 #### forwardMessage(chatId, fromChatId, messageId, options)
 
 ```js
-client.forwardMessage(
-  427770117,
-  313534466,
-  203,
-  { disable_notification: true }
-);
+client.forwardMessage(427770117, 313534466, 203, {
+  disable_notification: true,
+});
+
+
+
 ```
 
 [Official docs](https://core.telegram.org/bots/api/#forwardmessage)

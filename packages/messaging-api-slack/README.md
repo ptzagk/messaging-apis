@@ -29,7 +29,12 @@ import { SlackClient } from 'messaging-api-slack';
 
 // get webhook URL by adding a Incoming Webhook integration to your team.
 // https://my.slack.com/services/new/incoming-webhook/
-const client = SlackClient.connect('https://hooks.slack.com/services/XXXXXXXX/YYYYYYYY/zzzzzZZZZZ');
+const client = SlackClient.connect(
+  'https://hooks.slack.com/services/XXXXXXXX/YYYYYYYY/zzzzzZZZZZ'
+);
+
+
+
 ```
 
 ## API Reference
@@ -44,12 +49,18 @@ All methods return a Promise.
 
 ```js
 client.sendRawBody({ text: 'Hello!' });
+
+
+
 ```
 
 #### sendText(text)
 
 ```js
 client.sendText('Hello!');
+
+
+
 ```
 
 #### sendAttachments(attachments)
@@ -81,8 +92,11 @@ client.sendAttachments([
         short: false,
       },
     ],
-  }
+  },
 ]);
+
+
+
 ```
 
 #### sendAttachment(attachment)
@@ -102,4 +116,7 @@ client.sendAttachment({
     },
   ],
 });
+
+
+
 ```

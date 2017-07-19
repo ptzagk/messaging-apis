@@ -38,14 +38,20 @@ import { MessengerClient } from 'messaging-api-messenger';
 
 // get accessToken from facebook developers website
 const client = MessengerClient.connect(accessToken);
+
+
+
 ```
 
 ### Call API
 
 ```js
-async function() {
+async function fn() {
   await client.sendText(recipientId, text, options);
 }
+
+
+
 ```
 
 or
@@ -54,6 +60,9 @@ or
 client.sendText(recipientId, text, options).then(() => {
   // do something
 });
+
+
+
 ```
 
 ## API Reference
@@ -65,18 +74,20 @@ All methods return a Promise.
 #### getUserProfile(userId)
 
 ```js
-client.getUserProfile('1')
-  .then(user => {
-    console.log(user);
-    // {
-    //   first_name: 'Johnathan',
-    //   last_name: 'Jackson',
-    //   profile_pic: 'https://example.com/pic.png',
-    //   locale: 'en_US',
-    //   timezone: 8,
-    //   gender: 'male',
-    // }
-  });
+client.getUserProfile('1').then(user => {
+  console.log(user);
+  // {
+  //   first_name: 'Johnathan',
+  //   last_name: 'Jackson',
+  //   profile_pic: 'https://example.com/pic.png',
+  //   locale: 'en_US',
+  //   timezone: 8,
+  //   gender: 'male',
+  // }
+});
+
+
+
 ```
 
 ### Send API
@@ -95,6 +106,9 @@ client.sendRawBody({
     text: 'Hello!',
   },
 });
+
+
+
 ```
 
 #### send(userId, message)
@@ -103,18 +117,27 @@ client.sendRawBody({
 client.send('1', {
   text: 'Hello!',
 });
+
+
+
 ```
 
 #### sendText(userId, text [, options])
 
 ```js
 client.sendText('1', 'Hello!');
+
+
+
 ```
 
 #### sendIssueResolutionText(userId, text)
 
 ```js
 client.sendIssueResolutionText('1', 'Hello!');
+
+
+
 ```
 
 #### sendAttachment(userId, attachment)
@@ -126,30 +149,45 @@ client.sendAttachment('1', {
     url: 'https://example.com/pic.png',
   },
 });
+
+
+
 ```
 
 #### sendAudio(userId, url)
 
 ```js
 client.sendAudio('1', 'https://example.com/audio.mp3');
+
+
+
 ```
 
 #### sendImage(userId, url)
 
 ```js
 client.sendImage('1', 'https://example.com/pic.png');
+
+
+
 ```
 
 #### sendVideo(userId, url)
 
 ```js
 client.sendVideo('1', 'https://example.com/video.mp4');
+
+
+
 ```
 
 #### sendFile(userId, url)
 
 ```js
 client.sendFile('1', 'https://example.com/word.docx');
+
+
+
 ```
 
 #### sendTemplate(userId, template)
@@ -166,6 +204,9 @@ client.sendTemplate('1', {
     },
   ],
 });
+
+
+
 ```
 
 [Official docs](https://developers.facebook.com/docs/messenger-platform/send-api-reference/templates)
@@ -179,7 +220,10 @@ client.sendButtonTemplate('1', 'my_title', [
     title: 'Start Chatting',
     payload: 'USER_DEFINED_PAYLOAD',
   },
-]
+]);
+
+
+
 ```
 
 [Official docs](https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template)
@@ -208,6 +252,9 @@ client.sendGenericTemplate('1', [
     ],
   },
 ]);
+
+
+
 ```
 
 [Official docs](https://developers.facebook.com/docs/messenger-platform/send-api-reference/generic-template)
@@ -236,6 +283,9 @@ client.sendShippingUpdateTemplate('1', [
     ],
   },
 ]);
+
+
+
 ```
 
 #### sendReservationUpdateTemplate(userId, elements)
@@ -262,6 +312,9 @@ client.sendReservationUpdateTemplate('1', [
     ],
   },
 ]);
+
+
+
 ```
 
 #### sendIssueResolutionTemplate(userId, elements)
@@ -288,16 +341,20 @@ client.sendIssueResolutionTemplate('1', [
     ],
   },
 ]);
+
+
+
 ```
 
 #### sendListTemplate(userId, items, topElementStyle)
 
 ```js
-client.sendListTemplate('1', [
+client.sendListTemplate(
+  '1',
+  [
     {
       title: 'Classic T-Shirt Collection',
-      image_url:
-        'https://peterssendreceiveapp.ngrok.io/img/collection.png',
+      image_url: 'https://peterssendreceiveapp.ngrok.io/img/collection.png',
       subtitle: 'See all our colors',
       default_action: {
         type: 'web_url',
@@ -327,6 +384,9 @@ client.sendListTemplate('1', [
   ],
   'compact'
 );
+
+
+
 ```
 
 [Official docs](https://developers.facebook.com/docs/messenger-platform/send-api-reference/list-template)
@@ -355,13 +415,15 @@ client.sendListTemplate('1', [
 
 ```js
 client.sendQuickReplies('1', { text: 'Pick a color:' }, [
-    {
-      content_type: 'text',
-      title: 'Red',
-      payload: 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED',
-    },
-  ]
-);
+  {
+    content_type: 'text',
+    title: 'Red',
+    payload: 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED',
+  },
+]);
+
+
+
 ```
 
 [Official docs](https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies)
@@ -370,6 +432,9 @@ client.sendQuickReplies('1', { text: 'Pick a color:' }, [
 
 ```js
 client.sendSenderAction('1', 'typing_on');
+
+
+
 ```
 
 [Official docs](https://developers.facebook.com/docs/messenger-platform/send-api-reference/sender-actions)
@@ -378,12 +443,18 @@ client.sendSenderAction('1', 'typing_on');
 
 ```js
 client.turnTypingIndicatorsOn('1');
+
+
+
 ```
 
 #### turnTypingIndicatorsOff(userId)
 
 ```js
 client.turnTypingIndicatorsOff('1');
+
+
+
 ```
 
 ### Upload API
